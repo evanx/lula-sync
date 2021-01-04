@@ -1,7 +1,10 @@
 module.exports = {
   logger: {
     level: 'debug',
-    prettyPrint: { colorize: true, translateTime: false },
+    prettyPrint: process.env.LOG_PRETTY && {
+      colorize: false,
+      translateTime: true,
+    },
     base: {
       hostname: null,
     },

@@ -17,6 +17,10 @@ xgroup create lula-sync:test:x lula-sync-group $ mkstream
 ```
 
 ```
+xgroup setid lula-sync:test:x lula-sync-group 0
+```
+
+```
 xgroup setid lula-sync:test:x lula-sync-group $
 ```
 

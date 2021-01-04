@@ -16,9 +16,9 @@ create table lula_sync_stream (
 ;
 
 create table lula_sync_stream_test (
-  _id varchar(16) unique not null,
+  _id varchar(32) unique not null,
   _data text,
-  _ref varchar(16),
+  _ref varchar(32),
   _spec varchar(32),
   _type varchar(64),
   _source varchar(64),
@@ -47,8 +47,14 @@ select * from lula_sync_stream
 ;
 
 select * from lula_sync_stream
-where redis_host_key = 'localhost'
-and _enabled = true
+where _enabled = true
+and redis_host_key = 'localhost' 
+and redis_stream_key = 'lula-sync:test:x'
 ;
 
+select * from lula_sync_stream_test 
+order by _id desc
+;
+
+select count(1) from lula_sync_stream_test 
 ;

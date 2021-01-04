@@ -1,12 +1,21 @@
 module.exports = {
+  app: {
+    name: 'lula-sync',
+    loop: {
+      delay: '200',
+      limit: '0',
+    },
+  },
   redis: {
-    consumerGroup: 'lula-sync-group',
-    readCount: 1,
-    readBlock: 1000,
-    connect: {},
-    deprecated: {
+    tmp: { db: 0 },
+    connect: {
       keyPrefix: 'lula-sync:',
     },
+  },
+  xreadgroup: {
+    consumerGroup: 'lula-sync-group',
+    count: 1,
+    block: 1000,
   },
   claim: {
     interval: 4000,

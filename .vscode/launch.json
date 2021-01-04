@@ -14,7 +14,28 @@
       "skipFiles": ["<node_internals>/**"],
       "env": {
         "NODE_ENV": "development",
-        "TEST_ERROR": "_start"
+        "EXIT_NOTIFY": "notify:debug:t",
+        "LOOP_LIMIT": "4",
+        "LOOP_DELAY": "1000",
+        "TEST_ERR": "_xack"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xadd",
+      "stopOnEntry": false,
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["xadd"],
+      "cwd": "${workspaceFolder}",
+      "outputCapture": "std",
+      "port": 9229,
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_ENV": "testing",
+        "xTEST_ERR": "_start",
+        "LOOP_DELAY": "1000",
+        "LOOP_LIMIT": "10"
       }
     }
   ]

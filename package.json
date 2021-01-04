@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test:error:start": "NODE_ENV=development TEST_ERROR=start node index.js",
+    "testing:pretty": "NODE_ENV=testing LOG_PRETTY=true node index.js",
+    "testing:slow": "NODE_ENV=testing LOG_PRETTY=true LOOP_DELAY=1000 yarn start",
+    "error:start": "NODE_ENV=development TEST_ERR=start node index.js",
     "debug": "node --inspect-brk=9229 index.js",
+    "xadd": "node --inspect-brk=9229 test/xadd",
     "test": "jest"
   },
   "repository": {
